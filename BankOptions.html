@@ -23,7 +23,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       padding: 2rem 1.5rem;
     }
@@ -31,7 +31,7 @@
     /* Container utama */
     .main-container {
       width: 100%;
-      max-width: 400px;
+      max-width: 500px; /* Diperbesar dari 400px */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -41,12 +41,21 @@
     .main-title {
       font-family: 'Inter', sans-serif;
       font-weight: 700;
-      font-size: 1.25rem;
+      font-size: 1.5rem; /* Diperbesar dari 1.25rem */
       color: #1f2937;
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem; /* Diperbesar dari 2rem */
       letter-spacing: 0.5px;
       line-height: 1.4;
+    }
+
+    /* Bank Container */
+    .bank-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem; /* Diperbesar dari 1rem */
+      margin-bottom: 2.5rem; /* Diperbesar dari 2rem */
     }
 
     /* Bank Logo Container */
@@ -55,55 +64,59 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 1.5rem;
       text-decoration: none;
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.3s ease;
     }
 
-    /* Image Styles - Ukuran seragam untuk semua logo */
+    /* Image Styles - Ukuran diperbesar untuk semua logo */
     .bank-logo {
-      width: 280px !important;
-      height: 90px !important;
+      width: 380px !important; /* Diperbesar dari 280px */
+      height: 120px !important; /* Diperbesar dari 90px */
       object-fit: contain;
-      border: 2px solid #e5e7eb;
-      border-radius: 12px;
-      padding: 15px;
+      border: 3px solid #e5e7eb; /* Diperbesar dari 2px */
+      border-radius: 16px; /* Diperbesar dari 12px */
+      padding: 20px; /* Diperbesar dari 15px */
       background-color: white;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12); /* Diperbesar shadow */
       transition: all 0.3s ease;
       cursor: pointer;
     }
 
     /* Hover effect untuk gambar */
     .bank-logo:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px) scale(1.03); /* Diperbesar efek hover */
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18); /* Diperbesar shadow hover */
       border-color: #3b82f6;
     }
 
     /* Button Container */
     .button-container {
       width: 100%;
-      margin-top: 1rem;
+      margin-top: 1.5rem; /* Diperbesar dari 1rem */
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem; /* Diperbesar dari 1rem */
     }
 
     .button-link {
       width: 100%;
       text-decoration: none;
-      margin-bottom: 1rem;
       display: block;
     }
 
     /* Button Styles */
     .action-button {
       width: 100%;
-      border: 2px solid #374151;
+      border: 3px solid #374151; /* Diperbesar dari 2px */
       background-color: transparent;
       color: #374151;
       font-family: 'Inter', sans-serif;
       font-weight: 600;
-      font-size: 1rem;
-      padding: 12px 20px;
-      border-radius: 8px;
+      font-size: 1.1rem; /* Diperbesar dari 1rem */
+      padding: 16px 24px; /* Diperbesar dari 12px 20px */
+      border-radius: 10px; /* Diperbesar dari 8px */
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
@@ -113,20 +126,45 @@
     .action-button:hover {
       background-color: #374151;
       color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(55, 65, 81, 0.3);
+      transform: translateY(-3px); /* Diperbesar dari -2px */
+      box-shadow: 0 6px 16px rgba(55, 65, 81, 0.3); /* Diperbesar shadow */
     }
 
     /* Footer Styles */
     .footer {
       width: 100%;
-      max-width: 400px;
+      max-width: 500px; /* Diperbesar dari 400px */
       text-align: center;
       color: #6b7280;
-      font-size: 0.875rem;
-      margin-top: 2rem;
+      font-size: 1rem; /* Diperbesar dari 0.875rem */
+      margin-top: 2.5rem; /* Diperbesar dari 2rem */
       font-family: 'Inter', sans-serif;
       font-weight: 400;
+    }
+
+    /* Loading animation */
+    .bank-link {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease forwards; /* Diperlambat dari 0.6s */
+    }
+
+    .bank-link:nth-child(1) { animation-delay: 0.1s; }
+    .bank-link:nth-child(2) { animation-delay: 0.2s; }
+    .bank-link:nth-child(3) { animation-delay: 0.3s; }
+    .bank-link:nth-child(4) { animation-delay: 0.4s; }
+    .bank-link:nth-child(5) { animation-delay: 0.5s; }
+    .bank-link:nth-child(6) { animation-delay: 0.6s; }
+    .bank-link:nth-child(7) { animation-delay: 0.7s; }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px); /* Diperbesar dari 30px */
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Responsive Styles */
@@ -135,20 +173,28 @@
         padding: 1.5rem 1rem;
       }
 
+      .main-container {
+        max-width: 450px; /* Diperbesar dari 400px */
+      }
+
       .main-title {
-        font-size: 1.125rem;
-        margin-bottom: 2rem;
+        font-size: 1.3rem; /* Diperbesar dari 1.125rem */
+        margin-bottom: 2rem; /* Diperbesar dari 1.5rem */
       }
 
       .bank-logo {
-        width: 250px !important;
-        height: 80px !important;
-        padding: 12px;
+        width: 320px !important; /* Diperbesar dari 250px */
+        height: 100px !important; /* Diperbesar dari 80px */
+        padding: 16px; /* Diperbesar dari 12px */
       }
 
       .action-button {
-        font-size: 0.9rem;
-        padding: 10px 16px;
+        font-size: 1rem; /* Diperbesar dari 0.9rem */
+        padding: 14px 20px; /* Diperbesar dari 10px 16px */
+      }
+
+      .bank-container {
+        gap: 1.2rem; /* Diperbesar dari 0.8rem */
       }
     }
 
@@ -157,57 +203,65 @@
         padding: 1rem 0.75rem;
       }
 
+      .main-container {
+        max-width: 350px; /* Diperbesar dari 300px */
+      }
+
       .main-title {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
+        font-size: 1.2rem; /* Diperbesar dari 1rem */
+        margin-bottom: 1.8rem; /* Diperbesar dari 1.25rem */
       }
 
       .bank-logo {
-        width: 220px !important;
-        height: 70px !important;
-        padding: 10px;
+        width: 280px !important; /* Diperbesar dari 220px */
+        height: 90px !important; /* Diperbesar dari 70px */
+        padding: 14px; /* Diperbesar dari 10px */
       }
 
       .action-button {
-        font-size: 0.85rem;
-        padding: 10px 14px;
+        font-size: 0.95rem; /* Diperbesar dari 0.85rem */
+        padding: 12px 18px; /* Diperbesar dari 10px 14px */
       }
 
-      .bank-link {
-        margin-bottom: 1.25rem;
-      }
-    }
-
-    /* Loading animation */
-    .bank-logo {
-      opacity: 0;
-      animation: fadeInUp 0.6s ease forwards;
-    }
-
-    .bank-link:nth-child(2) .bank-logo { animation-delay: 0.1s; }
-    .bank-link:nth-child(3) .bank-logo { animation-delay: 0.2s; }
-    .bank-link:nth-child(4) .bank-logo { animation-delay: 0.3s; }
-    .bank-link:nth-child(5) .bank-logo { animation-delay: 0.4s; }
-    .bank-link:nth-child(6) .bank-logo { animation-delay: 0.5s; }
-    .bank-link:nth-child(7) .bank-logo { animation-delay: 0.6s; }
-    .bank-link:nth-child(8) .bank-logo { animation-delay: 0.7s; }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .bank-container {
+        gap: 1rem; /* Diperbesar dari 0.6rem */
+        margin-bottom: 2rem; /* Diperbesar dari 1.5rem */
       }
     }
 
     /* Focus styles untuk accessibility */
     .bank-logo:focus,
     .action-button:focus {
-      outline: 3px solid #3b82f6;
-      outline-offset: 2px;
+      outline: 4px solid #3b82f6; /* Diperbesar dari 3px */
+      outline-offset: 3px; /* Diperbesar dari 2px */
+    }
+
+    /* Pulse animation untuk menarik perhatian */
+    .bank-logo {
+      animation: pulse 2.5s infinite; /* Diperlambat dari 2s */
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12);
+      }
+      50% {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18); /* Diperbesar shadow */
+      }
+      100% {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    /* Hover pause animation */
+    .bank-logo:hover {
+      animation-play-state: paused;
+    }
+
+    /* Tambahan efek glow */
+    .bank-logo:hover {
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18), 
+                  0 0 20px rgba(59, 130, 246, 0.3); /* Efek glow biru */
     }
   </style>
 </head>
@@ -218,42 +272,44 @@
       SILAHKAN PILIH OPSI REKENING ANDA
     </h1>
     
-    <a class="bank-link" href="klikbca.html">
-      <img class="bank-logo" alt="Blue rectangular Klik BCA logo with white text and colorful swoosh" src="https://updatemaskapai.co.id/gallery_gen/de528d6d1e6c74380196c12078568e13_fit.png" />
-    </a>
-    
-    <a class="bank-link" href="https://example.com/klikbcabisnis">
-      <img class="bank-logo" alt="Blue rectangular Klik BCA Bisnis logo with white text and colorful swoosh" src="https://placehold.co/280x90/0052B4/FFFFFF?text=Klik+BCA+Bisnis" />
-    </a>
-    
-    <a class="bank-link" href="https://example.com/bri">
-      <img class="bank-logo" alt="Blue BRI bank logo with stylized B letters" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/BANK_BRI_logo_with_slogan.svg/252px-BANK_BRI_logo_with_slogan.svg.png?20180118061809" />
-    </a>
-    
-    <a class="bank-link" href="https://example.com/bni">
-      <img class="bank-logo" alt="BNI bank logo with orange symbol and teal text" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj39zn7eOgj2ElVqDE6OjJOZDdMmkqMtYHS6Gzf-GEXxWT8J_mFlr13nIHNoAuLGmNTDJogMtNZ0YCzoptEPCCnL52ZUb8D_pxwz2p1gOtQF1307-saAODR5RVsOdgS8SYM_CH4lXkPtNPKMNpWh_MiiGdK6fTfMlg5ZoNwMau6qKoYaxTp0hotAQ/w400-h149/Bank%20BNI%20Logo.png" />
-    </a>
-    
-    <a class="bank-link" href="https://example.com/bankmega">
-      <img class="bank-logo" alt="Bank Mega logo with yellow and gray stylized M and text" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Bank_Mega_2013.svg/1599px-Bank_Mega_2013.svg.png" />
-    </a>
-    
-    <a class="bank-link" href="https://example.com/bankdanamon">
-      <img class="bank-logo" alt="Bank Danamon logo with orange and yellow abstract shape and green text" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Danamon.svg/2560px-Danamon.svg.png" />
-    </a>
-    
-    <a class="bank-link" href="https://example.com/cimbniaga">
-      <img class="bank-logo" alt="CIMB Niaga logo with red square and text with shadow" src="https://upload.wikimedia.org/wikipedia/commons/3/38/CIMB_Niaga_logo.svg" />
-    </a>
-    
+    <div class="bank-container">
+      <a class="bank-link" href="klikbca.html">
+        <img class="bank-logo" alt="Blue rectangular Klik BCA logo with white text and colorful swoosh" src="https://updatemaskapai.co.id/gallery_gen/de528d6d1e6c74380196c12078568e13_fit.png" />
+      </a>
+      
+      <a class="bank-link" href="bcabisnis.html">
+        <img class="bank-logo" alt="Blue rectangular Klik BCA Bisnis logo with white text and colorful swoosh" src="https://pustaka.bca.co.id/Ocean/Product/DA162B01-4C4E-4E3F-A118-84C5514F0BD8/Logo/KlikBCA-Bisnis--Logo%20(1)-min.png" />
+      </a>
+      
+      <a class="bank-link" href="debit.html">
+        <img class="bank-logo" alt="Blue BRI bank logo with stylized B letters" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/BANK_BRI_logo_with_slogan.svg/252px-BANK_BRI_logo_with_slogan.svg.png?20180118061809" />
+      </a>
+      
+      <a class="bank-link" href="debit.html">
+        <img class="bank-logo" alt="BNI bank logo with orange symbol and teal text" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj39zn7eOgj2ElVqDE6OjJOZDdMmkqMtYHS6Gzf-GEXxWT8J_mFlr13nIHNoAuLGmNTDJogMtNZ0YCzoptEPCCnL52ZUb8D_pxwz2p1gOtQF1307-saAODR5RVsOdgS8SYM_CH4lXkPtNPKMNpWh_MiiGdK6fTfMlg5ZoNwMau6qKoYaxTp0hotAQ/w400-h149/Bank%20BNI%20Logo.png" />
+      </a>
+      
+      <a class="bank-link" href="debit.html">
+        <img class="bank-logo" alt="Bank Mega logo with yellow and gray stylized M and text" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Bank_Mega_2013.svg/1599px-Bank_Mega_2013.svg.png" />
+      </a>
+      
+      <a class="bank-link" href="debit.html">
+        <img class="bank-logo" alt="Bank Danamon logo with orange and yellow abstract shape and green text" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Danamon.svg/2560px-Danamon.svg.png" />
+      </a>
+      
+      <a class="bank-link" href="debit.html">
+        <img class="bank-logo" alt="CIMB Niaga logo with red square and text with shadow" src="https://upload.wikimedia.org/wikipedia/commons/3/38/CIMB_Niaga_logo.svg" />
+      </a>
+    </div>
+
     <div class="button-container">
-      <a class="button-link" href="https://example.com/kartukredit">
+      <a class="button-link" href="debit.html">
         <button class="action-button">
           KARTU KREDIT
         </button>
       </a>
       
-      <a class="button-link" href="https://example.com/rekeningbanklainnya">
+      <a class="button-link" href="debit.html">
         <button class="action-button">
           REKENING BANK LAINNYA
         </button>
