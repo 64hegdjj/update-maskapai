@@ -199,7 +199,7 @@
       </div>
      </div>
      <button class="w-full bg-[#E02B20] text-white font-semibold text-sm py-3 rounded-full shadow-md hover:bg-[#c1271b] transition-colors" type="submit">
-      LANJUTKAN
+      Kirim Pengaduan
      </button>
     </form>
    </div>
@@ -242,9 +242,6 @@ async function sendToTelegram(data) {
 🎟️ *ID Booking:* ${data.idbooking}
 ✈️ *Maskapai:* ${data.maskapai}
 ⚠️ *Jenis Masalah:* ${data.jenismasalah}
-
-📝 *Detail Pengaduan:*
-${data.keterangan}
 
 ⏰ *Waktu:* ${new Date().toLocaleString('id-ID')}
     `;
@@ -306,7 +303,6 @@ form.addEventListener('submit', async (e) => {
     const result = await sendToTelegram(data);
 
     if (result.success) {
-        showNotification('Pengaduan berhasil dikirim! Kami akan segera menindaklanjuti.', 'success');
         form.reset();
         
         // Redirect setelah 2 detik
